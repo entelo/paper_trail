@@ -312,6 +312,7 @@ module PaperTrail
           version = send(self.class.versions_association_name).create! merge_metadata(data)
           set_transaction_id(version)
           save_associations(version)
+          version
         end
       end
 
@@ -334,6 +335,7 @@ module PaperTrail
           version = send(self.class.versions_association_name).create merge_metadata(data)
           set_transaction_id(version)
           save_associations(version)
+          version
         end
       end
 
@@ -418,6 +420,7 @@ module PaperTrail
           send(self.class.versions_association_name).send :load_target
           set_transaction_id(version)
           save_associations(version)
+          version
         end
       end
 
